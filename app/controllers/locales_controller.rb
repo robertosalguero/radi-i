@@ -1,4 +1,5 @@
 class LocalesController < ApplicationController
+  before_action :authenticate_user
   before_action :set_locale, only: [:show, :update, :destroy]
 
   # GET /locales
@@ -11,31 +12,6 @@ class LocalesController < ApplicationController
   # GET /locales/1
   def show
     render json: @locale
-  end
-
-  # POST /locales
-  def create
-    @locale = Locale.new(locale_params)
-
-    if @locale.save
-      render json: @locale, status: :created, location: @locale
-    else
-      render json: @locale.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /locales/1
-  def update
-    if @locale.update(locale_params)
-      render json: @locale
-    else
-      render json: @locale.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /locales/1
-  def destroy
-    @locale.destroy
   end
 
   private

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :contents
-  resources :collections
-  resources :placements
-  resources :locales
-  resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope '/api' do
+    resources :content
+    resources :collections
+    resources :placements
+    resources :locales
+    resources :users
+    post 'user_token' => 'user_token#create'
+  end
+
 end

@@ -1,19 +1,19 @@
-class ContentsController < ApplicationController
+class ContentController < ApplicationController
   before_action :set_content, only: [:show, :update, :destroy]
 
-  # GET /contents
+  # GET /content
   def index
-    @contents = Content.all
+    @content = Content.all
 
-    render json: @contents
+    render json: @content
   end
 
-  # GET /contents/1
+  # GET /content/1
   def show
     render json: @content
   end
 
-  # POST /contents
+  # POST /content
   def create
     @content = Content.new(content_params)
 
@@ -24,7 +24,7 @@ class ContentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /contents/1
+  # PATCH/PUT /content/1
   def update
     if @content.update(content_params)
       render json: @content
@@ -33,7 +33,7 @@ class ContentsController < ApplicationController
     end
   end
 
-  # DELETE /contents/1
+  # DELETE /content/1
   def destroy
     @content.destroy
   end

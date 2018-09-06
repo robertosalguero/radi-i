@@ -5,7 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :avi
       t.string :bio
-      t.string :location
+      t.decimal :lat
+      t.decimal :long
+      t.boolean :admin, default: false
 
       t.timestamps
     end
