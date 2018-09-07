@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :avi
       t.string :bio
       t.decimal :lat
-      t.decimal :long
+      t.decimal :lon
       t.boolean :admin, default: false
 
       t.timestamps

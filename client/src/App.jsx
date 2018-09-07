@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Map from './Map.jsx';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
@@ -60,9 +61,12 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <form>
+if (this.state.isLoggedIn === true) {
+return (<Map />) }
+else {
+return (
+<div className="Auth">
+<form>
           <label htmlFor="username">username: </label>
           <br />
           <input
@@ -83,18 +87,18 @@ class App extends Component {
           </form>
           <br />
 
-          <button onClick={this.login}>
-          Login
-          </button>
+  <button onClick={this.login}>
+  Login
+  </button>
 
-          <button onClick={this.logout}>
-          Logout
-          </button>
-
-
-       </div>
-    );
-  }
+  <button onClick={this.logout}>
+  Logout
+  </button>
+</div>
+);
+ }
+ }
 }
+
 
 export default App;

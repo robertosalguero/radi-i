@@ -1,10 +1,11 @@
 class CollectionsController < ApplicationController
-  before_action :authenticate_user
-  before_action :set_collection, only: [:show]
+  ## before_action :set_collection, only: [:show]
 
 
   # GET /collections/1
   def show
+    debugger
+    p request.location
     render json: @collection
   end
  
