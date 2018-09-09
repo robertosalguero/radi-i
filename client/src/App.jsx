@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import Map from './Map.jsx';
+import Map from './Map';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
@@ -12,10 +11,10 @@ class App extends Component {
       password:'',
       isLoggedIn: null,
     };
-    this.logout = this.logout.bind(this)
-    this.login = this.login.bind(this)
-    this.isLoggedIn = this.isLoggedIn.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    this.logout = this.logout.bind(this);
+    this.login = this.login.bind(this);
+    this.isLoggedIn = this.isLoggedIn.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   isLoggedIn() {
@@ -59,6 +58,7 @@ class App extends Component {
   componentDidMount() {
     this.isLoggedIn()
   }
+
 
   render() {
 if (this.state.isLoggedIn === true) {

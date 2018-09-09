@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "deck.gl": "^5.3.4",
     "mapbox-gl": "^0.48.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-geolocated": "^2.4.0",
+    "react-geolocation": "^1.0.4",
     "react-map-gl": "^3.3.4",
     "react-scripts": "1.1.5",
     "socket.io": "^2.1.1"
