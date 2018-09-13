@@ -1,3 +1,3 @@
 class Locale < ApplicationRecord
-    has_many :placements, dependent :destroy
+    has_many :placements, dependent: :destroy
 end
