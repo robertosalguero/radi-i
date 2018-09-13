@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import MapGL, {NavigationControl, Marker } from 'react-map-gl';
-import CityPin from './Placement'
+import MapGL, {NavigationControl, Marker} from 'react-map-gl';
+import Placement from './Markers/Placement'
 import 'mapbox-gl/dist/mapbox-gl.css';
-import Demo from './Geo';
+import User from './Geo';
 const TOKEN = 'pk.eyJ1Ijoicm9iZXJ0c2FsZ3Vlcm8iLCJhIjoiY2pscXdvb2VlMmtwejNrb3M0bWhiM3BuMiJ9.frRFzb3JU0elVwU8lCC0SA';
 const PLACEMENT = 'https://data.cityofnewyork.us/resource/bdha-6eqy.json'
 const navStyle = {
@@ -16,7 +16,6 @@ class Map extends Component {
 constructor(props) {
     super(props);
     this.state = {
-      latitude: null,
       placements: [],
       viewport: {
         latitude: 40.7410986,
@@ -29,29 +28,21 @@ constructor(props) {
       }
     };
     this.getInnerRef = this.getInnerRef.bind(this);
-    this.getLocation = this.getLocation.bind(this);
   }
 
   innerRef;
       
   getInnerRef(ref) {
-      this.innerRef = ref;
-  }
-
-  getLocation() {
-      this.innerRef && this.innerRef.getLocation();
-  }
-
+    this.innerRef = ref;
+ }
 
 
   componentDidMount() {
     fetch(PLACEMENT)
     .then(response => response.json())
     .then(placements => {
-      console.log(placements)
       this.setState({
         placements: placements,
-        latitude: this.props.latitude
       });
     });
   }
@@ -62,30 +53,24 @@ constructor(props) {
 
     return (
       <Marker key={i} longitude={lng} latitude={lat} >
-        <CityPin />
+        <Placement />
       </Marker>
     );
   }
 
-
-
-
-
-
 render() {
   const placements = this.state.placements;
 return (
-
       <MapGL
         {...this.state.viewport}
         onViewportChange={(viewport) => this.setState({viewport})}
         mapStyle="mapbox://styles/robertsalguero/cjls64avr16h12sqt6l95jmi4"
         mapboxApiAccessToken={TOKEN}>
-        <div className="nav" style={navStyle}>
-       <NavigationControl />
+        <div className="nav" style={navStyle} >
+       <NavigationControl  />
         </div>
         { placements.map(this._renderPlacement) }
-        <Demo class="loc" onError={error => console.log(error)} ref={this.getInnerRef} />
+        <User onError={error => console.log(error)} ref={this.getInnerRef} />
       </MapGL>
     );
   }

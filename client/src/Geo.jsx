@@ -1,24 +1,19 @@
 import React from "react";
 import { Marker } from "react-map-gl";
-import UserLoc from './User'
+import UserLoc from './Markers/User'
 import { geolocated, geoPropTypes } from "react-geolocated";
 
-class Demo extends React.Component {
+class User extends React.Component {
+    
     render() {
-        const { props } = this;
         return (
-
-            <div
-                style={{
-                    visibility: "visible"
-                }}
-            >
-                {!props.isGeolocationAvailable ? (
+            <div>
+                {!this.props.isGeolocationAvailable ? (
                     <div>Your browser does not support Geolocation.</div>
-                ) : !props.isGeolocationEnabled ? (
+                ) : !this.props.isGeolocationEnabled ? (
                     <div>Geolocation is not enabled.</div>
-                ) : props.coords ? (
-                    <Marker  longitude={props.coords.longitude} latitude={props.coords.latitude} >
+                ) : this.props.coords ? (
+                    <Marker longitude={this.props.coords.longitude} latitude={this.props.coords.latitude}>
                     <UserLoc />
                     </Marker>
                 ) : (
@@ -29,11 +24,13 @@ class Demo extends React.Component {
     }
 }
 
-Demo.propTypes = { ...Demo.propTypes, ...geoPropTypes };
+User.propTypes = Object.assign({}, User.propTypes, geoPropTypes);
+
+
 
 export default geolocated({
     positionOptions: {
         enableHighAccuracy: false,
     },
     userDecisionTimeout: 5000,
-})(Demo);
+})(User);

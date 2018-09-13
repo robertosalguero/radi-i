@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-    attr_accessible :latitude, :longitude
     has_secure_password
 
 
@@ -8,9 +7,10 @@ class User < ApplicationRecord
         self.find_by username: username
       end
 
-    geocoded_by :ip_address,
-    :latitude => :lat, :longitude => :lon
-    after_validation :geocode
+      def to_token_payload
+        user = User.find_by username: username
+        { username: user.username, id: user.id }
+      end
 
     
 end

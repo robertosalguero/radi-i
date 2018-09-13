@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bulma": "^0.7.1",
     "deck.gl": "^5.3.4",
+    "jwt-decode": "^2.2.0",
     "mapbox-gl": "^0.48.0",
+    "node-sass": "^4.9.3",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react-bootstrap": "^0.32.4",
+    "react-bulma-components": "^2.0.0",
+    "react-dom": "^16.5.0",
     "react-geolocated": "^2.4.0",
     "react-geolocation": "^1.0.4",
     "react-map-gl": "^3.3.4",
+    "react-modal": "^3.5.1",
     "react-scripts": "1.1.5",
     "socket.io": "^2.1.1"
   },
@@ -17,6 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "css-build": "node-sass --omit-source-map-url sass/mystyles.scss src/css/mystyles.css",
+    "css-watch": "npm run css-build -- --watch",
+    "csstart": "npm run css-watch"
   }
 }
