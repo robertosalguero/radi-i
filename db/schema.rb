@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_213312) do
+ActiveRecord::Schema.define(version: 2018_09_13_220528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 2018_09_05_213312) do
     t.string "title"
     t.string "artist"
     t.string "src"
-    t.bigint "collection_id"
+    t.bigint "collections_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collection_id"], name: "index_content_on_collection_id"
+    t.index ["collections_id"], name: "index_content_on_collections_id"
   end
 
   create_table "locales", force: :cascade do |t|
@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 2018_09_05_213312) do
     t.string "title"
     t.string "msg"
     t.decimal "radius"
-    t.bigint "locale_id"
-    t.bigint "collection_id"
+    t.bigint "locales_id"
+    t.bigint "collections_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collection_id"], name: "index_placements_on_collection_id"
-    t.index ["locale_id"], name: "index_placements_on_locale_id"
+    t.index ["collections_id"], name: "index_placements_on_collections_id"
+    t.index ["locales_id"], name: "index_placements_on_locales_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,13 +62,13 @@ ActiveRecord::Schema.define(version: 2018_09_05_213312) do
     t.string "avi"
     t.string "bio"
     t.decimal "lat"
-    t.decimal "long"
+    t.decimal "lon"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "content", "collections"
-  add_foreign_key "placements", "collections"
-  add_foreign_key "placements", "locales"
+  add_foreign_key "content", "collections", column: "collections_id"
+  add_foreign_key "placements", "collections", column: "collections_id"
+  add_foreign_key "placements", "locales", column: "locales_id"
 end

@@ -66,7 +66,7 @@ class App extends Component {
   
   register(body) {
     registerUser(body)
-    .then(() => this.login(body = { auth: { "username": body.username, "password": body.password}}))
+    .then(res => window.alert('registered'))
     .catch(err => err.message)
   }
   

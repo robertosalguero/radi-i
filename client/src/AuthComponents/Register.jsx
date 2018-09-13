@@ -36,6 +36,7 @@ export default class Register extends Component {
             }
         }
         this.props.register(body)
+        
     }
     render() {
         return (
@@ -78,7 +79,7 @@ export default class Register extends Component {
                         value={this.state.bio}
                         onChange={this.handleChange} /></li>
                     </ul>
-                    <button className="button is-warning is-large" type="submit" onClick={this.props.register} value="Register">Register</button>
+                    <button className="button is-warning is-large" type="submit" onClick={this.handleRegister} value="Register">Register</button>
                 </form>
                 </div>
                 </div>
