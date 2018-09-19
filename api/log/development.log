@@ -1,0 +1,86 @@
+Started POST "/api/users" for 127.0.0.1 at 2018-09-14 12:47:19 -0400
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as JSON
+  Parameters: {"auth"=>{"username"=>"rob", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avi"=>"", "bio"=>""}, "user"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:21
+  [1m[36mUser Create (6.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "avi", "bio", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "rob"], ["password_digest", "$2a$10$35Fu6K0x/.X3bPSGNulQiuN5aaayi8lJNkIQJP1emtLkDDrvfjK7S"], ["avi", ""], ["bio", ""], ["created_at", "2018-09-14 16:47:19.902057"], ["updated_at", "2018-09-14 16:47:19.902057"]]
+  ↳ app/controllers/users_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:21
+Completed 201 Created in 108ms (Views: 1.4ms | ActiveRecord: 26.1ms)
+
+
+Started POST "/api/user_token" for 127.0.0.1 at 2018-09-14 12:47:29 -0400
+Processing by UserTokenController#create as JSON
+  Parameters: {"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.9ms)
+
+
+  
+KeyError (key not found: :secret_key_base):
+  
+config/initializers/knock.rb:39:in `block (2 levels) in <main>'
+Started POST "/api/user_token" for 127.0.0.1 at 2018-09-14 12:47:31 -0400
+Processing by UserTokenController#create as JSON
+  Parameters: {"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 0.4ms)
+
+
+  
+KeyError (key not found: :secret_key_base):
+  
+config/initializers/knock.rb:39:in `block (2 levels) in <main>'
+Started POST "/api/user_token" for 127.0.0.1 at 2018-09-14 12:47:33 -0400
+Processing by UserTokenController#create as JSON
+  Parameters: {"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.4ms)
+
+
+  
+KeyError (key not found: :secret_key_base):
+  
+config/initializers/knock.rb:39:in `block (2 levels) in <main>'
+Started POST "/api/user_token" for 127.0.0.1 at 2018-09-14 12:48:10 -0400
+Processing by UserTokenController#create as JSON
+  Parameters: {"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.4ms)
+
+
+  
+KeyError (key not found: :secret_key_base):
+  
+config/initializers/knock.rb:39:in `block (2 levels) in <main>'
+Started POST "/api/user_token" for 127.0.0.1 at 2018-09-14 12:50:04 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UserTokenController#create as JSON
+  Parameters: {"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"username"=>"rob", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rob"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 5.6ms)
+
+
+  
+KeyError (key not found: :secret_key_base):
+  
+config/initializers/knock.rb:39:in `block (2 levels) in <main>'

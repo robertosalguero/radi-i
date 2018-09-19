@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  locale_id: MyString
+  collection_id: MyString
+  title: MyString
+  msg: MyString
+  radius: MyString
+
+two:
+  locale_id: MyString
+  collection_id: MyString
+  title: MyString
+  msg: MyString
+  radius: MyString
